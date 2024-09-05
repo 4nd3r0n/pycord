@@ -1,4 +1,6 @@
+// Archivo para el entorno virtual en Zed
+
 {
-  "venvPath": ".",
-  "venv": ".venv"
+    "venvPath": ".",
+    "venv": ".venv"
 }

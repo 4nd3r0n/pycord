@@ -1,3 +1,4 @@
+from os import name
 import requests
 import random
 
@@ -13,10 +14,15 @@ def waifu() -> dict:
 
     if response.status_code == 200:
         data = response.json()
+        names: list = []
+        descs: list = []
 
-        send['name'] = data['images'][0]['tags'][0]['name']
-        send['description'] = data['images'][0]['tags'][0]['description']
         send['img'] = data['images'][0]['url']
+        for i in range(len(data['images'][0]['tags'])):
+            descs.append(data['images'][0]['tags'][i]['description'])
+            names.append(data['images'][0]['tags'][i]['name'])
+        send['description'] = ', '.join(descs)
+        send['name'] = ', '.join(names)
         send['tag'] = tag
     else:
         print('Request failed with status code:', response.status_code)

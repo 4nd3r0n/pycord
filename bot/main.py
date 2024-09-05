@@ -17,7 +17,7 @@ async def on_ready():
 
 @bot.command(name='info')
 async def info(ctx):
-    embed = discord.Embed(title=f'{ctx.guild.name}', description=f"Anderbot!", timestamp=datetime.now(), color=7419530)
+    embed = discord.Embed(title=f'{ctx.guild.name}', description=f"¡Anderbot!\n\nConoce el repositorio oficial del bot en: https://github.com/4nd3r0n/pycord\n\nPara el uso del bot es necesario usar '/' antes de escribir un comando.\nPara obtener todos los comandos usa '/help'.", timestamp=datetime.now(), color=7419530)
     embed.set_thumbnail(url='https://avatars.githubusercontent.com/u/128745048?v=4')
     await ctx.send(embed=embed)
 
@@ -48,7 +48,7 @@ async def gpt(ctx, *args):
             embed.set_thumbnail(url='https://duckduckgo.com/static-assets/favicons/DDG-iOS-icon_152x152.png')
             await ctx.send(embed=embed)
         else:
-            embed = discord.Embed(title='🤖 ❓ GPT', description='Proporciona un Promt', color=16705372)
+            embed = discord.Embed(title='🤖 ❓ GPT', description='Proporciona un Prompt', color=16705372)
             await ctx.send(embed=embed)
     except Exception as e:
         embed = discord.Embed(title='🤖 ❌ GPT Command Error', description=f'{e}', color=15548997)
@@ -57,7 +57,7 @@ async def gpt(ctx, *args):
 @bot.command(name='clear')
 async def clear(ctx):
     try:
-        #await ctx.channel.purge()
+        #await ctx.channel.purge() # TODO: Se necesita ser propietario del servidor para funcionar
         await info(ctx)
     except Exception as e:
         await ctx.send(f'[Error] Error al purgar el canal: {e}')
