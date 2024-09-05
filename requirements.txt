@@ -1,0 +1,5 @@
+colorama==0.4.6
+discord.py==2.4.0
+duckduckgo_search==6.2.11
+requests==2.32.3
+translate==3.6.1
